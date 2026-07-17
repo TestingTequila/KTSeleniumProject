@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.Random;
 
-public class Registration {
+public class Registration1 {
     public static void main(String[] args) {
 
         //1. Open the browser

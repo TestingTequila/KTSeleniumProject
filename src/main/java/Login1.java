@@ -2,10 +2,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import java.time.Duration;
 
-public class Login {
+public class Login1 {
     public static void main(String[] args) {
         //1- Open the browser
         WebDriver driver = new ChromeDriver();

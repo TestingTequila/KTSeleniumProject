@@ -1,3 +1,5 @@
+package data;
+
 public interface AppData
 {
     String BROWSER_NAME= "Chrome";

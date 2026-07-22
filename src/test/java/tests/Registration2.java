@@ -1,20 +1,21 @@
+package tests;
+
+import data.AppData;
+import data.TestData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-import java.util.Random;
-
-public class Registration1 {
+public class Registration2 {
     public static void main(String[] args) {
 
         //1. Open the browser
-        WebDriver driver = new ChromeDriver();
+        WebDriver driver = ReusableMethods.CommonActions.launchBrowser(AppData.BROWSER_NAME);
         driver.manage().window().maximize();
 
         //2. Enter the url
-        driver.get("https://janbaskdemo.com/");
+        driver.get(AppData.URL);
 
         //3. Click on my account icon
         WebElement myAccountIcon = driver.findElement(By.xpath("//i[@class='fa fa-user']"));
@@ -26,18 +27,18 @@ public class Registration1 {
 
         //5. Fill the Registration form
         WebElement fNameTextBox = driver.findElement(By.id("input-firstname"));
-        fNameTextBox.sendKeys("Bharati");
+        fNameTextBox.sendKeys(TestData.FIRST_NAME);
 
         WebElement lNameTextBox = driver.findElement(By.name("lastname"));
-        lNameTextBox.sendKeys("Mishra");
+        lNameTextBox.sendKeys(TestData.LAST_NAME);
 
-        int randomNumber = new Random().nextInt(239) + 1;
+        int randomNumber = TestData.RANDOM_NUMBER;
 
         WebElement emailTextBox = driver.findElement(By.id("input-email"));
-        emailTextBox.sendKeys("bharati.mishra"+randomNumber+"@janbask.com");
+        emailTextBox.sendKeys(TestData.REGISTRATION_EMAIL_ID);
 
         WebElement telephoneTextBox = driver.findElement(By.name("telephone"));
-        telephoneTextBox.sendKeys("8987756745");
+        telephoneTextBox.sendKeys(TestData.TELEPHONE_NUMBER);
 
         WebElement countryDDL = driver.findElement(By.id("input-country"));
         Select country = new Select(countryDDL);
@@ -45,17 +46,17 @@ public class Registration1 {
         country.selectByValue(Integer.toString(randomNumber));
 
         WebElement passwordTextBox = driver.findElement(By.id("input-password"));
-        passwordTextBox.sendKeys("test@1234");
+        passwordTextBox.sendKeys(TestData.REGISTRATION_PASSWORD);
 
         WebElement cPasswordTextBox = driver.findElement(By.id("input-confirm"));
-        cPasswordTextBox.sendKeys("test@1234");
+        cPasswordTextBox.sendKeys(TestData.REGISTRATION_CONFIRM_PASSWORD);
 
         WebElement yesRadioButton = driver.findElement(By.name("newsletter"));
         yesRadioButton.click();
 
         WebElement subscriptionDDL = driver.findElement(By.name("subscription"));
         Select subscribe = new Select(subscriptionDDL);
-        subscribe.selectByValue("Monthly");
+        subscribe.selectByValue(TestData.SUBSCRIPTION_TYPE);
 
         //6. Click on Privacy Policy checkbox
         WebElement privacyPolicyCheckbox = driver.findElement(By.name("agree"));
@@ -66,20 +67,17 @@ public class Registration1 {
         continueBtn.click();
 
         //8. Validate registration status
-        WebElement successLink =driver.findElement(By.xpath("//a[text()='Success']"));
-        String successMsg =successLink.getText();
+        WebElement successLink = driver.findElement(By.xpath("//a[text()='Success']"));
+        String successMsg = successLink.getText();
         System.out.println("SUCCESS MESSAGE IS: " + successMsg);
 
-        if(successMsg.equals("Success"))
-        {
-            System.out.println("Congratulation....you have been registered");
-        }
-        else
-        {
-            System.out.println("This email already Registered....");
+        if (successMsg.equals("Success")) {
+            System.out.println(TestData.REGISTRATION_SUCCESS_MESSAGE);
+        } else {
+            System.out.println(TestData.REGISTRATION_FAILURE_MESSAGE);
         }
         //9. Close the browser
-        driver.close();
+        ReusableMethods.CommonActions.closeBrowser();
 
     }
 }

@@ -1,0 +1,3 @@
+Page Object Model: Its a design patter
+
+For every page of the test case, we should have a different page object created

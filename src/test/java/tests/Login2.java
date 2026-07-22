@@ -1,18 +1,18 @@
+package tests;
+
+import data.AppData;
+import data.TestData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 
 import java.time.Duration;
 
-public class Login4 {
-
+public class Login2 {
     public static void main(String[] args) {
         //1- Open the browser
-        WebDriver driver = ReusableMethods.CommonActions.launchBrowser(AppData.BROWSER_NAME);
+        WebDriver driver = new ChromeDriver();
 
         //2- Enter the url
         driver.get(AppData.URL);
@@ -50,10 +50,11 @@ public class Login4 {
             System.out.println(TestData.FAILURE_MESSAGE);
         }
         //9- Close the browser
-        ReusableMethods.CommonActions.closeBrowser();
+        driver.close();
 
 
     }
 }
 
-//We made handling multiple browsers as common function[in class file ReusableMethods-->CommonActions-->launchBrowser]
+
+//Segregated the test data and kept it in different files called AppData & TestData

@@ -1,14 +1,37 @@
+package tests;
+
+import data.AppData;
+import data.TestData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 
 import java.time.Duration;
 
-public class Login2 {
+public class Login3 {
+    static WebDriver driver;
+
     public static void main(String[] args) {
+
+
         //1- Open the browser
-        WebDriver driver = new ChromeDriver();
+        String browserName = AppData.BROWSER_NAME;
+
+        if (browserName.equals("Chrome")) {
+            driver = new ChromeDriver();
+        } else if (browserName.equals("Firefox")) {
+            driver = new FirefoxDriver();
+        } else if (browserName.equals("Edge")) {
+            driver = new EdgeDriver();
+        } else if (browserName.equals("IE")) {
+            driver = new InternetExplorerDriver();
+        } else {
+            System.out.println("Not a valid browser name....");
+        }
 
         //2- Enter the url
         driver.get(AppData.URL);
@@ -52,5 +75,4 @@ public class Login2 {
     }
 }
 
-
-//Segregated the test data and kept it in different files called AppData & TestData
+//Handling Multiple Browsers

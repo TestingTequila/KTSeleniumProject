@@ -1,33 +1,18 @@
+package tests;
+
+import data.AppData;
+import data.TestData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 
 import java.time.Duration;
 
-public class Login3 {
-    static WebDriver driver;
+public class Login4 {
 
     public static void main(String[] args) {
-
-
         //1- Open the browser
-        String browserName = AppData.BROWSER_NAME;
-
-        if (browserName.equals("Chrome")) {
-            driver = new ChromeDriver();
-        } else if (browserName.equals("Firefox")) {
-            driver = new FirefoxDriver();
-        } else if (browserName.equals("Edge")) {
-            driver = new EdgeDriver();
-        } else if (browserName.equals("IE")) {
-            driver = new InternetExplorerDriver();
-        } else {
-            System.out.println("Not a valid browser name....");
-        }
+        WebDriver driver = ReusableMethods.CommonActions.launchBrowser(AppData.BROWSER_NAME);
 
         //2- Enter the url
         driver.get(AppData.URL);
@@ -65,10 +50,10 @@ public class Login3 {
             System.out.println(TestData.FAILURE_MESSAGE);
         }
         //9- Close the browser
-        driver.close();
+        ReusableMethods.CommonActions.closeBrowser();
 
 
     }
 }
 
-//Handling Multiple Browsers
+//We made handling multiple browsers as common function[in class file ReusableMethods-->CommonActions-->launchBrowser]

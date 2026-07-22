@@ -1,3 +1,5 @@
+package data;
+
 import java.util.Random;
 
 public interface TestData {

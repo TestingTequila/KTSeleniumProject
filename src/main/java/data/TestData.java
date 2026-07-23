@@ -25,4 +25,5 @@ public interface TestData {
     String REGISTRATION_SUCCESS_MESSAGE = "Congratulation....you have been registered";
     String REGISTRATION_FAILURE_MESSAGE = "This email already Registered....";
 
+
 }

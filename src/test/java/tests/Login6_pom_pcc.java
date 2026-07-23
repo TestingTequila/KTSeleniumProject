@@ -2,9 +2,9 @@ package tests;
 
 import data.AppData;
 import org.openqa.selenium.WebDriver;
-import pcc.AccountLogin;
-import pcc.MyAccount;
-import pcc.YourStore;
+import pompcc.AccountLogin;
+import pompcc.MyAccount;
+import pompcc.YourStore;
 
 public class Login6_pom_pcc {
 
@@ -39,4 +39,3 @@ public class Login6_pom_pcc {
     }
 }
 
-//We made handling multiple browsers as common function[in class file ReusableMethods-->CommonActions-->launchBrowser]
